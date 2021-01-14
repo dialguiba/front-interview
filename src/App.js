@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ListContacts from "./components/ListContacts";
+import NewContact from "./components/NewContact";
+import { Link, Route, Switch } from "wouter";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <a href="/new">New Contact</a>
+      <a href="/list">List of contacts</a>
+      <Switch>
+        <Route component={NewContact} path="/new" />
+        <Route component={ListContacts} path="/list" />
+      </Switch>
     </div>
   );
 }
